@@ -4,10 +4,7 @@ import com.mybatis.plus.mybatisplususe.model.User;
 import com.mybatis.plus.mybatisplususe.mapper.UserMapper;
 import com.mybatis.plus.mybatisplususe.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * <p>

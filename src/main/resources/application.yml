@@ -16,3 +16,6 @@ spring.http.converters.preferred-json-mapper: jackson
 spring.jackson.date-format: yyyy-MM-dd HH:mm:ss
 spring.jackson.joda-date-time-format: yyyy-MM-dd HH:mm:ss
 spring.jackson.time-zone: GMT+8
+logging:
+  level:
+    root: debug
