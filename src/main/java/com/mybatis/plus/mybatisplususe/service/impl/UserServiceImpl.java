@@ -1,0 +1,23 @@
+package com.mybatis.plus.mybatisplususe.service.impl;
+
+import com.mybatis.plus.mybatisplususe.model.User;
+import com.mybatis.plus.mybatisplususe.mapper.UserMapper;
+import com.mybatis.plus.mybatisplususe.service.UserService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author admin
+ * @since 2018-09-26
+ */
+@Service
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+
+}
