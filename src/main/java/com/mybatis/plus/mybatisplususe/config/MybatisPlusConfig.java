@@ -1,23 +1,15 @@
 package com.mybatis.plus.mybatisplususe.config;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.mybatis.spring.annotation.MapperScan;
+import com.baomidou.mybatisplus.core.injector.ISqlInjector;
+import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.baomidou.mybatisplus.core.parser.ISqlParser;
-import com.baomidou.mybatisplus.extension.incrementer.H2KeyGenerator;
-import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.tenant.TenantHandler;
-import com.baomidou.mybatisplus.extension.plugins.tenant.TenantSqlParser;
-
-import net.sf.jsqlparser.expression.Expression;
-import net.sf.jsqlparser.expression.LongValue;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 //@MapperScan("com.mybatis.plus.mybatisplususe.mapper*")//这个注解，作用相当于下面的@Bean MapperScannerConfigurer，2者配置1份即可
@@ -31,7 +23,30 @@ public class MybatisPlusConfig {
         return paginationInterceptor;
     }
 
+    /*逻辑删除配置*/
+    @Bean
+    public ISqlInjector sqlInjector() {
+        return new LogicSqlInjector();
+    }
 
+    /**
+     * SQL执行效率插件
+     */
+    @Bean
+    @Profile({"dev","test"})// 设置 dev test 环境开启
+    public PerformanceInterceptor performanceInterceptor() {
+        PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
+        performanceInterceptor.setFormat(true);
+//        performanceInterceptor.setMaxTime(500);
+//        performanceInterceptor.setWriteInLog(true);
+        return performanceInterceptor;
+    }
+
+    /*乐观锁插件*/
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
+    }
 
 //    /**
 //     * mybatis-plus分页插件<br>
@@ -91,7 +106,8 @@ public class MybatisPlusConfig {
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
-        scannerConfigurer.setBasePackage("com.mybatis.plus.mybatisplususe.mapper*");
+        scannerConfigurer.setBasePackage("com.mybatis.plus.mybatisplususe.mapper*," +
+                "com.mybatis.plus.mybatisplususe.test.mapper*");
         return scannerConfigurer;
     }
 

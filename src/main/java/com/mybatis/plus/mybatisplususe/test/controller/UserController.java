@@ -1,4 +1,4 @@
-package com.mybatis.plus.mybatisplususe.controller;
+package com.mybatis.plus.mybatisplususe.test.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -6,14 +6,14 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.mybatis.plus.mybatisplususe.model.User;
+import com.mybatis.plus.mybatisplususe.test.model.User;
 import com.mybatis.plus.mybatisplususe.service.UserService;
+import com.mybatis.plus.mybatisplususe.test.mapper.DynamicMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import sun.nio.cs.US_ASCII;
 
 import java.util.*;
 
@@ -30,6 +30,8 @@ import java.util.*;
 public class UserController extends ApiController {
     @Autowired
     private UserService userService;
+    @Autowired
+    private DynamicMapper dynamicMapper;
     /*测试查询全部*/
     @GetMapping()
     public List<User> findAll(){
@@ -133,7 +135,7 @@ public class UserController extends ApiController {
     /*测试按照ID删除*/
     @GetMapping("/t7")
     public boolean t7() {
-        return userService.removeById(2);
+        return userService.removeById(6);
     }
 
     /*测试按照多个ID删除*/
@@ -275,6 +277,7 @@ public class UserController extends ApiController {
         return users;
     }
 
+
     /*按照一个Map多个条件与查询*/
     @GetMapping("/t21")
     public Collection t21() {
@@ -285,6 +288,21 @@ public class UserController extends ApiController {
         return collection;
     }
 
+    /*测试一个动态SQL*/
+    @GetMapping("/t27")
+    public Collection t27() {
+        String sql = "SELECT * FROM USER";
+        List<Map> collection = dynamicMapper.dynamicSelect(sql);
+        return collection;
+    }
 
+    /*乐观锁*/
+    @GetMapping("/t28")
+    public User t28() {
+        User user = userService.getById(1);
+        user.setPassword("123456");
+        userService.updateById(user);
+        return user;
+    }
 }
 
