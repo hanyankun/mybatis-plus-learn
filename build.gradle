@@ -42,6 +42,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
 //    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.7'
 
+    compile group: 'com.baomidou', name: 'kaptcha-spring-boot-starter', version: "${kaptchaVersion}"
 
     //druid连接池配置
     compile group: 'com.alibaba', name: 'druid-spring-boot-starter', version: "${druidVersion}"
