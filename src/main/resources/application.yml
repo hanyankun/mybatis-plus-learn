@@ -35,7 +35,7 @@ kaptcha:
     source: abcdefghjklmnopqrstuvwxyz23456789
     space: 2
   font:
-    color: black
+    color: blue
     name: Arial
     size: 40
   background-color:
