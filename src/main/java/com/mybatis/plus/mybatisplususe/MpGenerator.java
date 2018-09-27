@@ -34,7 +34,7 @@ public class MpGenerator {
                 .setNaming(NamingStrategy.underline_to_camel);
         config.setActiveRecord(false)
                 .setEnableCache(false)
-                .setAuthor("admin")
+                .setAuthor("zhuquanwen")
                 // 这里就直接输出到项目里面，不用再复制进来
                 .setOutputDir("src\\main\\java")
                 .setFileOverride(true)
@@ -44,7 +44,7 @@ public class MpGenerator {
                 .setStrategy(strategyConfig)
                 .setPackageInfo(
                         new PackageConfig()
-                                .setParent("com.mybatis.plus.mybatisplususe")
+                                .setParent("com.mybatis.plus.mybatisplususe.aaa")
                                 .setController("controller")
                                 .setEntity("model")
                 ).execute();

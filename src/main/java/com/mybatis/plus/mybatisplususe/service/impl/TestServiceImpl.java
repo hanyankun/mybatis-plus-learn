@@ -1,6 +1,6 @@
 package com.mybatis.plus.mybatisplususe.service.impl;
 
-import com.mybatis.plus.mybatisplususe.model.Test;
+import com.mybatis.plus.mybatisplususe.test.model.Test;
 import com.mybatis.plus.mybatisplususe.mapper.TestMapper;
 import com.mybatis.plus.mybatisplususe.service.TestService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

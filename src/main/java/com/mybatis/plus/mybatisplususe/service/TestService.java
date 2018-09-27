@@ -1,6 +1,6 @@
 package com.mybatis.plus.mybatisplususe.service;
 
-import com.mybatis.plus.mybatisplususe.model.Test;
+import com.mybatis.plus.mybatisplususe.test.model.Test;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

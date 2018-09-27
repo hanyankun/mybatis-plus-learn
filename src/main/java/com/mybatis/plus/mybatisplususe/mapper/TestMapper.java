@@ -1,6 +1,6 @@
 package com.mybatis.plus.mybatisplususe.mapper;
 
-import com.mybatis.plus.mybatisplususe.model.Test;
+import com.mybatis.plus.mybatisplususe.test.model.Test;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
