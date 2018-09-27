@@ -40,7 +40,7 @@ dependencies {
 //    compile group: 'com.baomidou', name: 'mybatis-plus', version: "${mybatis_plus_boot_starter_version}"
 
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
-    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.7'
+//    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.7'
 
 
     //druid连接池配置
