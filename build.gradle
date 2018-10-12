@@ -40,6 +40,13 @@ dependencies {
     // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus
 //    compile group: 'com.baomidou', name: 'mybatis-plus', version: "${mybatis_plus_boot_starter_version}"
 
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
+//    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.9.7'
+
+    compile group: 'com.baomidou', name: 'kaptcha-spring-boot-starter', version: "${kaptchaVersion}"
+
+    //druid连接池配置
+    compile group: 'com.alibaba', name: 'druid-spring-boot-starter', version: "${druidVersion}"
     runtime('org.springframework.boot:spring-boot-devtools')
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')

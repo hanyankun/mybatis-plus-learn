@@ -1,8 +1,9 @@
-package com.mybatis.plus.mybatisplususe.model;
+package com.mybatis.plus.mybatisplususe.test.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -13,7 +14,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author admin
- * @since 2018-09-26
+ * @since 2018-09-27
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -43,7 +44,14 @@ public class User implements Serializable {
     /**
      * 电话号码
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private String phone;
+
+    @TableLogic
+    private Integer deleted;
+
+    @Version
+    private Integer version;
 
 
 }

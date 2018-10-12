@@ -1,6 +1,6 @@
 package com.mybatis.plus.mybatisplususe.mapper;
 
-import com.mybatis.plus.mybatisplususe.model.Test;
+import com.mybatis.plus.mybatisplususe.test.model.Test;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author admin
- * @since 2018-09-26
+ * @since 2018-09-27
  */
 public interface TestMapper extends BaseMapper<Test> {
 
