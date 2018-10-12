@@ -67,7 +67,7 @@ public class UserController extends ApiController {
     @GetMapping("/t4")
     public List<User> t4() {
         List<User> users = new ArrayList<>();
-        for (int i = 0; i < 100 ; i++) {
+        for (int i = 0; i < 100; i++) {
             User user = new User();
             user.setPassword(UUID.randomUUID().toString());
             user.setPhone("121");
